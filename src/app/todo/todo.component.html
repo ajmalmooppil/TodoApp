@@ -1,0 +1,60 @@
+<!-- <om-retro-grid [gridColor]="'#fff'" [fadeColor]="'rgb(15, 15, 15)'">
+  <h3 class="fadeColor">{{ date | date : "" }}</h3>
+
+  <form (ngSubmit)="addTodo()" class="todo-form">
+    <div class="form-field">
+      <label for="task">New Task</label>
+      <input type="text" id="task" [(ngModel)]="newTodo" name="task" required />
+    </div>
+
+    <div class="form-field">
+      <label for="dueDate">Due Date</label>
+      <input
+        type="date"
+        id="dueDate"
+        [(ngModel)]="dueDate"
+        name="dueDate"
+        required
+      />
+    </div>
+    <span *ngIf="!editMode"
+      ><button type="submit" class="btn-primary">Add Task</button></span
+    >
+    <span *ngIf="editMode"><button (click)="updateTodo()">Update</button></span>
+  </form>
+
+  <table class="todo-table">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Completed</th>
+        <th>Creation Date</th>
+        <th>Due Date</th>
+        <th>Last Updated</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Complete</th>
+        <!-- New column for Complete button -->
+<!-- </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of filteredTodos; let i = index">
+        <td>{{ todo.text }}</td>
+        <td>{{ todo.completed ? "Yes" : "No" }}</td>
+        <td>{{ todo.creationDate | date : "dd/MM/yyyy" }}</td>
+        <td>{{ todo.dueDate | date : "dd/MM/yyyy" }}</td>
+        <td>{{ todo.lastUpdatedDate | date : "dd/MM/yyyy" }}</td>
+        <td>
+          <button (click)="editTodo(i)" class="btn-edit">Edit</button>
+        </td>
+
+        <td>
+          <button (click)="completeTask(i)" class="btn-complete">
+            Complete
+          </button>
+          <!-- New Complete button -->
+<!-- </td>
+      </tr>
+    </tbody>
+  </table> -->
+<!-- </om-retro-grid>  -->

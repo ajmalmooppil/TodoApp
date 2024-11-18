@@ -1,0 +1,52 @@
+<div class="Registr-continer">
+  <div class="Register-box">
+    <h4 class="heading">Register</h4>
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <div class="input-group">
+        <input
+          type="text"
+          [(ngModel)]="user.name"
+          placeholder="Name"
+          name="name"
+          required
+          minlength="5"
+          #name="ngModel"
+        />
+        <div *ngIf="name.invalid && name.touched" class="error">
+          Name must be at least 5 characters.
+        </div>
+      </div>
+      <div class="input-group">
+        <input
+          type="email"
+          [(ngModel)]="user.email"
+          placeholder="Email"
+          name="email"
+          required
+          #email="ngModel"
+        />
+        <div *ngIf="email.invalid && email.touched" class="error">
+          Please enter a valid email.
+        </div>
+      </div>
+      <div class="input-group">
+        <input
+          type="password"
+          minlength="6"
+          [(ngModel)]="user.password"
+          placeholder="Password"
+          name="password"
+          required
+          #password="ngModel"
+        />
+
+        <div *ngIf="password.invalid && password.touched" class="error">
+          Password must be at least 6 characters.
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      <a [routerLink]="['/login']" class="login-link">Login</a>
+    </form>
+  </div>
+</div>

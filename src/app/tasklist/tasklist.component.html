@@ -1,0 +1,105 @@
+<app-headder class="fixed"></app-headder><br><br>
+<div class="input-container  bg-light  py-3 shadow">
+  <div class="container">
+    <div class="row g-3 justify-content-center">
+      <div class="col-lg-8 col-md-10 col-12">
+        <div class="row g-2 align-items-center">
+          <!-- Task Input -->
+          <div class="col-lg-7 col-md-6 col-12">
+            <input
+              type="text"
+              name="task"
+              [(ngModel)]="newTask.title"
+              class="form-control form-control-lg"
+              placeholder="Add a new task..."
+            />
+          </div>
+          <!-- Due Date Input -->
+          <div class="col-lg-3 col-md-4 col-12">
+            <input
+              type="date"
+              name="duedate"
+              [(ngModel)]="newTask.dueDate"
+              class="form-control form-control-lg"
+            />
+          </div>
+          <!-- Add Task Button -->
+          <div class="col-lg-2 col-md-2 col-12">
+            <button class="btn btn-primary btn-lg w-100" (click)="addTask()">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="list-group mt-4 px-3">
+  <!-- Task List -->
+  <li
+    *ngFor="let task of tasks"
+    class="list-group-item d-flex justify-content-between align-items-start flex-wrap mb-3 shadow-sm"
+  >
+    <div class="ms-2 me-auto w-75">
+      <!-- View Mode -->
+      <div *ngIf="!task.isEditing">
+        <h5 class="fw-bold">{{ task.title }}</h5>
+        <small class="text-muted d-block mb-1">Created: {{ task.creationDate | date }}</small>
+        <small class="text-muted d-block mb-1">Due: {{ task.dueDate | date }}</small>
+        <small class="text-muted d-block mb-1">Last Updated: {{ task.lastUpdatedDate | date }}</small>
+        <span
+          class="badge"
+          [class.bg-success]="task.status === 'Completed'"
+          [class.bg-warning]="task.status !== 'Completed'"
+        >
+          {{ task.status }}
+        </span>
+      </div>
+      <!-- Edit Mode -->
+      <div *ngIf="task.isEditing">
+        <input
+          type="text"
+          [(ngModel)]="task.title"
+          class="form-control mb-2"
+          placeholder="Task Title"
+        />
+        <input
+          type="date"
+          [(ngModel)]="task.dueDate"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <!-- Action Buttons -->
+    <div class="d-flex flex-column align-items-end">
+      <!-- Edit/Save/Cancel Buttons -->
+      <button
+        *ngIf="!task.isEditing"
+        class="btn btn-secondary mb-2"
+        (click)="enableEditMode(task)"
+      >
+        Edit
+      </button>
+      <div *ngIf="task.isEditing">
+        <button class="btn btn-primary mb-2" (click)="saveTask(task)">
+          Save
+        </button>
+        <button class="btn btn-warning mb-2" (click)="cancelEditMode(task)">
+          Cancel
+        </button>
+      </div>
+      <!-- Delete and Complete Buttons -->
+      <button class="btn btn-danger mb-2" (click)="removeTask(task)">
+        Delete
+      </button>
+      <button
+        class="btn btn-success"
+        [disabled]="task.status === 'Completed'"
+        (click)="completeTask(task)"
+      >
+        Complete
+      </button>
+    </div>
+  </li>
+</ul>

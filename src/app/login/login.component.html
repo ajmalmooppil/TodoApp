@@ -1,0 +1,38 @@
+<div class="login-container">
+  <div class="login-box">
+    <h4 class="heading">Login</h4>
+    <form #loginForm="ngForm">
+      <div class="input-group">
+        <input
+          type="email"
+          required
+          [(ngModel)]="credentials.email"
+          name="email"
+          email
+          #email="ngModel"
+        />
+        <label>Username</label>
+        <div *ngIf="email.invalid && email.touched" class="error">
+          Please enter valid email.
+        </div>
+      </div>
+      <div class="input-group">
+        <input
+          type="password"
+          required
+          [(ngModel)]="credentials.password"
+          name="password"
+          #password="ngModel"
+        />
+        <label>Password</label>
+        <div *ngIf="password.invalid && password.touched" class="error">
+          Please enter a valid password
+        </div>
+      </div>
+      <button type="submit" (click)="login()" [disabled]="loginForm.invalid">
+        Login
+      </button>
+      <a [routerLink]="['/register']" class="register-link">Register</a>
+    </form>
+  </div>
+</div>

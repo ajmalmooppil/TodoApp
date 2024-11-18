@@ -1,0 +1,180 @@
+/* Background */
+body {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Form Styling */
+.todo-form {
+  background: rgba(26, 26, 26, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 500px;
+  margin: 20px;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+om-retro-grid {
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.typewriter-large {
+  font-size: 3.5rem;
+  letter-spacing: 0.25rem;
+  font-weight: bold;
+  padding-right: 0.5rem;
+  color: aliceblue;
+}
+
+.fadeColor {
+  font-display: fallback;
+  text-align: right; /* Aligns the text to the center */
+  background: linear-gradient(to right, #090000, #ff0000); /* Gradient color */
+  background-clip: text;
+  color: transparent;
+  margin-right: 50px;
+  /* margin-left: 500px; */
+} /* Table Styling */
+.todo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.todo-table th,
+.todo-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.todo-table td {
+  color: #fff;
+}
+
+.todo-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.btn-edit,
+.btn-delete,
+.btn-complete {
+  padding: 5px 10px;
+  margin: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.btn-delete {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.btn-complete {
+  background-color: #008cba; /* Blue */
+  color: white;
+}
+
+.btn-complete:disabled {
+  background-color: #ccc; /* Grey */
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .todo-form {
+    padding: 15px;
+  }
+
+  .form-field input {
+    padding: 6px;
+  }
+
+  button {
+    padding: 8px;
+  }
+
+  .todo-table th,
+  .todo-table td {
+    padding: 10px;
+  }
+
+  .typewriter-large {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 480px) {
+  .todo-form {
+    padding: 10px;
+    width: 300px;
+    margin-left: 65px;
+  }
+
+  .form-field input {
+    padding: 4px;
+  }
+
+  button {
+    padding: 6px;
+  }
+
+  .todo-table th,
+  .todo-table td {
+    padding: 6px;
+  }
+
+  .typewriter-large {
+    font-size: 2rem;
+  }
+}

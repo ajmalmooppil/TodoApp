@@ -1,0 +1,66 @@
+<app-headder class="fixed"></app-headder><br><br>
+<div class="container py-4 ">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center fw-bold">To-Do Dashboard</h2>
+        <p class="text-center text-muted">Overview of your tasks</p>
+      </div>
+    </div>
+  
+    <div class="row mt-4">
+      <div class="col-md-4 col-sm-6 col-12">
+        <div class="card text-center shadow">
+          <div class="card-body">
+            <h5 class="card-title">Total Tasks</h5>
+            <p class="display-4 fw-bold">{{ totalTasks }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 mt-sm-0 mt-3">
+        <div class="card text-center shadow">
+          <div class="card-body">
+            <h5 class="card-title">Completed Tasks</h5>
+            <p class="display-4 fw-bold text-success">{{ completedTasks }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 mt-md-0 mt-3">
+        <div class="card text-center shadow">
+          <div class="card-body">
+            <h5 class="card-title">Pending Tasks</h5>
+            <p class="display-4 fw-bold text-warning">{{ pendingTasks }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mt-4">
+      <div class="col-12">
+        <h4 class="fw-bold">Latest Tasks</h4>
+        <ul class="list-group">
+          <li
+            *ngFor="let task of latestTasks"
+            class="list-group-item d-flex justify-content-between align-items-start"
+          >
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">{{ task.title }}</div>
+              <small class="text-muted">
+                Created: {{ task.creationDate | date:'shortDate' }}
+                | Status: {{ task.status }}
+              </small>
+            </div>
+            <span
+              class="badge"
+              [ngClass]="{
+                'bg-success': task.status === 'Completed',
+                'bg-warning': task.status !== 'Completed'
+              }"
+            >
+              {{ task.status }}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

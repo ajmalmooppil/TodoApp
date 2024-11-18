@@ -1,0 +1,18 @@
+nav.navbar {
+    background-color: #f8f9fa; /* Light background */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .navbar-brand {
+    color: #007bff;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    color: #343a40;
+  }
+  
+  .nav-link:hover {
+    color: #007bff;
+  }
+  
